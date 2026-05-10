@@ -189,10 +189,9 @@
     }
     .bio-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
     .bio-avatar {
-      width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
-      background: var(--primary); color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 1.3rem;
+      width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+      object-fit: cover; object-position: center top;
+      border: 2px solid var(--border);
     }
     .bio-name { font-weight: 800; font-size: 1.05rem; color: var(--primary); }
     .bio-role { font-size: .82rem; color: var(--text-muted); font-weight: 600; margin-top: .2rem; line-height: 1.4; }
@@ -232,6 +231,13 @@
       font-size: .95rem; transition: color .2s;
     }
     .map-link:hover { color: var(--accent); }
+    .map-embed {
+      width: 100%; max-width: 700px;
+      border-radius: var(--radius); overflow: hidden;
+      border: 1.5px solid var(--border);
+      aspect-ratio: 4/3;
+    }
+    .map-embed iframe { width: 100%; height: 100%; display: block; border: 0; }
 
     /* ── FOOTER ── */
     footer {
@@ -416,7 +422,7 @@
       <!-- Thomas Kufen -->
       <div class="bio-card">
         <div class="bio-card-header">
-          <div class="bio-avatar">TK</div>
+          <img src="img/meister.png" alt="Thomas Kufen" class="bio-avatar">
           <div>
             <div class="bio-name">Thomas Kufen</div>
             <div class="bio-role de">Oberbürgermeister der Stadt Essen</div>
@@ -438,7 +444,7 @@
       <!-- Mustapha Ziri -->
       <div class="bio-card">
         <div class="bio-card-header">
-          <div class="bio-avatar">MZ</div>
+          <img src="img/ambassador.png" alt="Mustapha Ziri" class="bio-avatar">
           <div>
             <div class="bio-name">Mustapha Ziri</div>
             <div class="bio-role de">Generalkonsul der Tunesischen Republik, Düsseldorf</div>
@@ -510,6 +516,11 @@
         </svg>
         Ouvrir dans Google Maps
       </a>
+
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.9984566493104!2d7.013520776617135!3d51.45818477180217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8c2b698795815%3A0xa1ec54ba7ec02c37!2sEssen%20City%20Hall!5e0!3m2!1sen!2sde!4v1778422891207!5m2!1sen!2sde"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </div>
 </section>

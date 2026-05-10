@@ -1,0 +1,5 @@
+Thomas Kufen, né le 5 août 1973, est maire (Oberbürgermeister) de la ville d'Essen depuis octobre 2015. Ce membre de l'Union chrétienne-démocrate (CDU) a d'abord siégé au Parlement du Land de Rhénanie-du-Nord-Westphalie (2000–2005 et 2012–2015), puis présidé le groupe CDU au conseil municipal d'Essen (2010–2015), avant d'accéder à la plus haute fonction de la métropole de la Ruhr.
+
+À la tête de l'une des plus grandes villes d'Allemagne, Thomas Kufen œuvre pour la transformation structurelle d'Essen — ancienne capitale du charbon et de l'acier reconvertie en pôle moderne d'économie, d'éducation et de développement urbain durable. Essen a été Capitale européenne de la culture en 2017 et se positionne aujourd'hui comme un carrefour d'innovation et de coopération internationale au cœur de la région Ruhr.
+
+Thomas Kufen est membre du bureau fédéral de la CDU et porte-parole adjoint du comité des villes de l'Association régionale de la Ruhr (RVR). Sa participation au Forum Économique Tuniso-Allemand témoigne de l'engagement de la ville d'Essen en faveur des partenariats économiques internationaux et du renforcement des relations bilatérales.

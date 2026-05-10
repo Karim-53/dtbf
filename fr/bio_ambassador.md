@@ -1,0 +1,5 @@
+Mustapha Ziri est Consul général de la République tunisienne à Düsseldorf depuis janvier 2024. Il représente la Tunisie dans les Länder de Rhénanie-du-Nord-Westphalie, Hesse, Rhénanie-Palatinat et Sarre, faisant de lui le plus haut représentant diplomatique de son pays dans l'une des régions économiques les plus dynamiques d'Allemagne.
+
+Depuis sa prise de fonctions, Ziri a œuvré activement au renforcement du dialogue bilatéral. En février 2026, il a été reçu par le maire Thomas Kufen à l'Hôtel de Ville d'Essen ; en mars 2026, il a rencontré le président du Parlement de NRW, André Kuper, pour examiner les perspectives de coopération parlementaire et économique.
+
+Le Forum Économique Tuniso-Allemand Essen 2026 est en grande partie le fruit de son initiative. À l'occasion du 70e anniversaire des relations diplomatiques entre l'Allemagne et la Tunisie, Ziri a proposé d'organiser ce forum bilatéral à Essen — un signal fort du dynamisme croissant des deux pays en matière de commerce, d'investissement et d'échange de compétences.

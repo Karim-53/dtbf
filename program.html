@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vorläufiges Programm – Deutsch-Tunesisches Business Forum Essen 2026, 17.–18. September 2026, Rathaus Essen.">
+  <meta property="og:title" content="Programm – Deutsch-Tunesisches Business Forum Essen 2026">
+  <meta property="og:image" content="icon.png">
+  <title>Programm – Deutsch-Tunesisches Business Forum Essen 2026</title>
+  <link rel="icon" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── DAY TABS ── */
+    .day-tabs-wrap {
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 57px; z-index: 90;
+    }
+    .day-tabs {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+    }
+    .day-tab {
+      flex: 1; padding: 1rem 1rem;
+      font-family: inherit; font-weight: 700; font-size: .9rem;
+      background: none; border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer; color: var(--text-muted);
+      transition: color .2s, border-color .2s;
+      text-align: center; line-height: 1.3;
+    }
+    .day-tab:hover { color: var(--primary); }
+    .day-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+    /* ── SCHEDULE ── */
+    #program-content {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+    .day-content { display: none; }
+    .day-content.active { display: block; }
+
+    .sched-list { display: flex; flex-direction: column; }
+
+    .sched-item {
+      display: grid;
+      grid-template-columns: 115px 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .sched-item:last-child { border-bottom: none; }
+
+    .sched-time {
+      padding: 1.2rem .75rem 1.2rem 0;
+      display: flex; flex-direction: column;
+      align-items: flex-end; justify-content: flex-start;
+      font-weight: 700; font-size: .8rem; color: var(--primary);
+      line-height: 1.4; gap: .1rem;
+      border-right: 2px solid var(--border);
+    }
+    .sched-time .t-end { color: var(--text-muted); font-weight: 600; }
+
+    .sched-body {
+      padding: 1.2rem 0 1.2rem 1.25rem;
+    }
+
+    .sched-tag {
+      display: inline-block;
+      font-size: .65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      padding: .15rem .55rem; border-radius: 4px;
+      margin-bottom: .45rem;
+    }
+    .tag-welcome  { background: #e8f5e9; color: #2e7d32; }
+    .tag-plenary  { background: #e3f0ff; color: var(--primary); }
+    .tag-keynote  { background: #fff3cd; color: #7a5000; }
+    .tag-break    { background: #f3f4f6; color: #6b7280; }
+    .tag-lunch    { background: #fef3c7; color: #92400e; }
+    .tag-parallel { background: #e0f2f1; color: #00695c; }
+    .tag-b2b      { background: #ede7f6; color: #4527a0; }
+    .tag-networking { background: #fce7f3; color: #9d174d; }
+    .tag-closing  { background: #e0e7ff; color: #312e81; }
+
+    .sched-title {
+      font-weight: 700; color: var(--text); font-size: .95rem;
+      line-height: 1.35; margin-bottom: .35rem;
+    }
+    .sched-subtitle {
+      font-size: .83rem; color: var(--text-muted);
+      font-style: italic; margin-bottom: .5rem; line-height: 1.4;
+    }
+    .sched-details {
+      margin-top: .45rem; padding-left: 1rem;
+      font-size: .85rem; color: var(--text-muted);
+      display: flex; flex-direction: column; gap: .2rem;
+      list-style: disc;
+    }
+    .sched-details li { line-height: 1.45; }
+    .sched-details li b { color: var(--text); font-weight: 600; }
+
+    .sched-item.is-break .sched-title { color: var(--text-muted); font-weight: 600; }
+    .sched-item.is-break .sched-body  { opacity: .75; }
+
+    /* ── PARALLEL GRID ── */
+    .parallel-label {
+      font-size: .78rem; font-weight: 700; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin: .65rem 0 .6rem;
+    }
+    .parallel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: .75rem;
+    }
+    .panel-card {
+      background: var(--bg-alt); border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: .9rem 1rem;
+      border-top: 3px solid var(--primary);
+    }
+    .panel-card.pc-health  { border-top-color: #0d9488; }
+    .panel-card.pc-circ    { border-top-color: #16a34a; }
+    .panel-card.pc-energy  { border-top-color: #d97706; }
+    .panel-card.pc-market  { border-top-color: #0284c7; }
+    .panel-card.pc-supply  { border-top-color: #7c3aed; }
+    .panel-card.pc-skills  { border-top-color: #db2777; }
+
+    .panel-num {
+      font-size: .65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--text-muted); margin-bottom: .3rem;
+    }
+    .panel-title {
+      font-weight: 700; color: var(--primary);
+      font-size: .9rem; margin-bottom: .5rem; line-height: 1.3;
+    }
+    .panel-topics {
+      list-style: none; padding: 0;
+      font-size: .81rem; color: var(--text-muted);
+      display: flex; flex-direction: column; gap: .18rem;
+    }
+    .panel-topics li::before {
+      content: '·'; color: var(--accent);
+      margin-right: .35rem; font-weight: 700;
+    }
+
+    /* ── DOWNLOADS ── */
+    #downloads { background: var(--bg-alt); padding: 3rem 1.5rem; }
+    .dl-group-title {
+      font-size: .75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--text-muted); margin-bottom: .75rem;
+    }
+    .dl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .dl-card {
+      display: flex; align-items: center; gap: 1rem;
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 1.1rem 1.25rem;
+      text-decoration: none; color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .dl-card:hover { border-color: var(--primary); box-shadow: 0 2px 14px rgba(0,53,128,.1); }
+    .dl-icon {
+      width: 42px; height: 42px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .dl-icon svg { width: 22px; height: 22px; }
+    .dl-icon.de-icon { background: #e3f0ff; color: var(--primary); }
+    .dl-icon.fr-icon { background: #fef3c7; color: #92400e; }
+    .dl-info { flex: 1; min-width: 0; }
+    .dl-lang { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: .2rem; }
+    .dl-name { font-weight: 700; font-size: .88rem; color: var(--primary); line-height: 1.3; }
+    .dl-arrow { color: var(--accent); font-size: 1.1rem; font-weight: 700; flex-shrink: 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .sched-item { grid-template-columns: 80px 1fr; }
+      .sched-time { font-size: .72rem; padding-right: .6rem; }
+      .sched-body { padding-left: .9rem; }
+      .parallel-grid { grid-template-columns: 1fr; }
+      .day-tab { font-size: .8rem; padding: .85rem .5rem; }
+      #program-content { padding: 1.5rem 1rem 2.5rem; }
+      #downloads { padding: 2rem 1rem; }
+    }
+    @media (max-width: 480px) {
+      .day-tabs-wrap { top: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="topnav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="icon.png" alt="DTBF 2026">
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li>
+        <a href="index.html" class="de">Startseite</a>
+        <a href="index.html" class="fr hidden">Accueil</a>
+      </li>
+      <li>
+        <a href="program.html" class="de active-page">Programm</a>
+        <a href="program.html" class="fr hidden active-page">Programme</a>
+      </li>
+      <li>
+        <a href="team.html" class="de">Team</a>
+        <a href="team.html" class="fr hidden">Équipe</a>
+      </li>
+      <li>
+        <a href="inscription.html" class="de">Anmeldung</a>
+        <a href="inscription.html" class="fr hidden">Inscription</a>
+      </li>
+      <li>
+        <a href="contact.html" class="de">Kontakt</a>
+        <a href="contact.html" class="fr hidden">Contact</a>
+      </li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="lang-btn active" id="btnDe" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" id="btnFr" onclick="setLang('fr')">FR</button>
+      <button class="share-btn" onclick="shareEvent()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        <span class="de">Teilen</span>
+        <span class="fr hidden">Partager</span>
+      </button>
+      <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menü">&#9776;</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HEADER ═══ -->
+<div class="page-header">
+  <div class="section-inner">
+    <p class="section-label de">17.–18. September 2026 &nbsp;·&nbsp; Rathaus Essen</p>
+    <p class="section-label fr hidden">17–18 septembre 2026 &nbsp;·&nbsp; Hôtel de Ville d'Essen</p>
+    <h1 class="section-title de">Vorläufiges Programm</h1>
+    <h1 class="section-title fr hidden">Programme Provisoire</h1>
+  </div>
+</div>
+
+<!-- ═══ DAY TABS ═══ -->
+<div class="day-tabs-wrap">
+  <div class="day-tabs">
+    <button class="day-tab active" id="tab1" onclick="switchDay(1)">
+      <span class="de">Tag 1 &nbsp;·&nbsp; Do., 17. September</span>
+      <span class="fr hidden">Jour 1 &nbsp;·&nbsp; Jeu. 17 septembre</span>
+    </button>
+    <button class="day-tab" id="tab2" onclick="switchDay(2)">
+      <span class="de">Tag 2 &nbsp;·&nbsp; Fr., 18. September</span>
+      <span class="fr hidden">Jour 2 &nbsp;·&nbsp; Ven. 18 septembre</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══ SCHEDULE ═══ -->
+<div id="program-content">
+
+  <!-- ─── DAY 1 ─── -->
+  <div id="day1" class="day-content active">
+    <div class="sched-list">
+
+      <!-- 08:30 Registration -->
+      <div class="sched-item is-break">
+        <div class="sched-time"><span>08:30</span><span class="t-end">09:30</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-welcome de">Empfang</span>
+          <span class="sched-tag tag-welcome fr hidden">Accueil</span>
+          <div class="sched-title de">Einlass, Registrierung &amp; Welcome-Coffee</div>
+          <div class="sched-title fr hidden">Accueil, enregistrement et café de bienvenue</div>
+        </div>
+      </div>
+
+      <!-- 09:30 Official Opening -->
+      <div class="sched-item">
+        <div class="sched-time"><span>09:30</span><span class="t-end">10:30</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-plenary de">Plenarsitzung</span>
+          <span class="sched-tag tag-plenary fr hidden">Plénière</span>
+          <div class="sched-title de">Offizielle Eröffnung</div>
+          <div class="sched-title fr hidden">Ouverture officielle</div>
+          <ul class="sched-details de">
+            <li>Moderation (n.n.)</li>
+            <li><b>Begrüßungsreden:</b> OB Thomas Kufen (Stadt Essen) · Vertreter der deutschen Wirtschaft (DIHK / AHK) · Tunesisches Wirtschaftsministerium / Gesundheitsministerium · Botschafter beider Länder</li>
+          </ul>
+          <ul class="sched-details fr hidden">
+            <li>Modération (à confirmer)</li>
+            <li><b>Allocutions de bienvenue :</b> Maire Thomas Kufen (ville d'Essen) · Représentants de l'économie allemande (DIHK / AHK) · Ministère tunisien de l'Économie / de la Santé · Ambassadeurs des deux pays</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 10:30 Keynote -->
+      <div class="sched-item">
+        <div class="sched-time"><span>10:30</span><span class="t-end">11:00</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-keynote">Keynote</span>
+          <div class="sched-title de">Keynote-Vortrag</div>
+          <div class="sched-title fr hidden">Discours d'ouverture (Keynote)</div>
+          <div class="sched-subtitle de">„Deutsch-Tunesische Wirtschaftsbeziehungen im Wandel: Chancen 2030"</div>
+          <div class="sched-subtitle fr hidden">« Les relations économiques germano-tunisiennes en mutation : opportunités 2030 »</div>
+        </div>
+      </div>
+
+      <!-- 11:00 Break -->
+      <div class="sched-item is-break">
+        <div class="sched-time"><span>11:00</span><span class="t-end">11:15</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-break de">Pause</span>
+          <span class="sched-tag tag-break fr hidden">Pause</span>
+          <div class="sched-title de">Pause</div>
+          <div class="sched-title fr hidden">Pause</div>
+        </div>
+      </div>
+
+      <!-- 11:15 2 Panels -->
+      <div class="sched-item">
+        <div class="sched-time"><span>11:15</span><span class="t-end">13:00</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-plenary de">2 Panels</span>
+          <span class="sched-tag tag-plenary fr hidden">2 Panels</span>
+          <div class="sched-title de">Investitions- und Kooperationspotenziale zwischen Deutschland und Tunesien</div>
+          <div class="sched-title fr hidden">Potentiels d'investissement et de coopération entre l'Allemagne et la Tunisie</div>
+          <ul class="sched-details de">
+            <li>Rahmenbedingungen &amp; Förderinstrumente (n.n.)</li>
+            <li>Best Practices: Unternehmen zur wirtschaftlichen Kooperation</li>
+          </ul>
+          <ul class="sched-details fr hidden">
+            <li>Cadre réglementaire et instruments de promotion (à confirmer)</li>
+            <li>Bonnes pratiques d'entreprises sur la coopération économique</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 13:00 Lunch -->
+      <div class="sched-item is-break">
+        <div class="sched-time"><span>13:00</span><span class="t-end">14:00</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-lunch de">Mittagessen</span>
+          <span class="sched-tag tag-lunch fr hidden">Déjeuner</span>
+          <div class="sched-title de">Business Lunch</div>
+          <div class="sched-title fr hidden">Déjeuner d'affaires (Business Lunch)</div>
+        </div>
+      </div>
+
+      <!-- 14:00 Parallel Panels -->
+      <div class="sched-item">
+        <div class="sched-time"><span>14:00</span><span class="t-end">15:30</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-parallel de">Parallele Panels</span>
+          <span class="sched-tag tag-parallel fr hidden">Panels parallèles</span>
+          <div class="sched-title de">Parallele Fachpanels – 1. Runde</div>
+          <div class="sched-title fr hidden">Panels thématiques en simultané – 1ère session</div>
+          <div class="parallel-grid" style="margin-top:.75rem">
+
+            <div class="panel-card pc-health">
+              <div class="panel-num de">Panel 1</div>
+              <div class="panel-num fr hidden">Panel 1</div>
+              <div class="panel-title de">Gesundheitswirtschaft</div>
+              <div class="panel-title fr hidden">Économie de la santé</div>
+              <ul class="panel-topics de">
+                <li>Medizintechnik &amp; Digitalisierung</li>
+                <li>Klinikpartnerschaften</li>
+                <li>Ausbildung &amp; Fachkräfte</li>
+              </ul>
+              <ul class="panel-topics fr hidden">
+                <li>Technologie médicale et numérisation</li>
+                <li>Partenariats hospitaliers</li>
+                <li>Formation et main-d'œuvre qualifiée</li>
+              </ul>
+            </div>
+
+            <div class="panel-card pc-circ">
+              <div class="panel-num">Panel 2</div>
+              <div class="panel-title de">Nachhaltige Abfallwirtschaft &amp; Kreislaufwirtschaft</div>
+              <div class="panel-title fr hidden">Gestion durable des déchets et économie circulaire</div>
+              <ul class="panel-topics de">
+                <li>Recyclinglösungen</li>
+                <li>Public-Private Partnerships</li>
+                <li>EU-Standards &amp; Umsetzung in Tunesien</li>
+              </ul>
+              <ul class="panel-topics fr hidden">
+                <li>Solutions de recyclage</li>
+                <li>Partenariats Public-Privé (PPP)</li>
+                <li>Normes de l'UE et mise en œuvre en Tunisie</li>
+              </ul>
+            </div>
+
+            <div class="panel-card pc-energy">
+              <div class="panel-num">Panel 3</div>
+              <div class="panel-title de">Energie &amp; Energiewende</div>
+              <div class="panel-title fr hidden">Énergie et transition énergétique</div>
+              <ul class="panel-topics de">
+                <li>Solar- und Windenergie</li>
+                <li>Wasserstoffperspektiven</li>
+                <li>Netzinfrastruktur &amp; Investitionen</li>
+              </ul>
+              <ul class="panel-topics fr hidden">
+                <li>Énergie solaire et éolienne</li>
+                <li>Perspectives de l'hydrogène</li>
+                <li>Infrastructures de réseau et investissements</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 15:30 Coffee -->
+      <div class="sched-item is-break">
+        <div class="sched-time"><span>15:30</span><span class="t-end">15:45</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-break de">Pause</span>
+          <span class="sched-tag tag-break fr hidden">Pause</span>
+          <div class="sched-title de">Kaffeepause</div>
+          <div class="sched-title fr hidden">Pause café</div>
+        </div>
+      </div>
+
+      <!-- 15:45 Panel Summary -->
+      <div class="sched-item">
+        <div class="sched-time"><span>15:45</span><span class="t-end">16:15</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-plenary de">Plenarsitzung</span>
+          <span class="sched-tag tag-plenary fr hidden">Plénière</span>
+          <div class="sched-title de">Zusammenfassung der Panels</div>
+          <div class="sched-title fr hidden">Résumé succinct des panels</div>
+        </div>
+      </div>
+
+      <!-- 16:15 Closing -->
+      <div class="sched-item">
+        <div class="sched-time"><span>16:15</span><span class="t-end">16:30</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-plenary de">Moderation</span>
+          <span class="sched-tag tag-plenary fr hidden">Modération</span>
+          <div class="sched-title de">Abschluss durch Moderation</div>
+          <div class="sched-title fr hidden">Conclusion par la modération</div>
+        </div>
+      </div>
+
+      <!-- 16:30 Networking -->
+      <div class="sched-item">
+        <div class="sched-time"><span>16:30+</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-networking de">Netzwerken</span>
+          <span class="sched-tag tag-networking fr hidden">Réseautage</span>
+          <div class="sched-title de">Individuelles Netzwerken</div>
+          <div class="sched-title fr hidden">Réseautage individuel</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /day1 -->
+
+  <!-- ─── DAY 2 ─── -->
+  <div id="day2" class="day-content">
+    <div class="sched-list">
+
+      <!-- 09:00 Recap -->
+      <div class="sched-item">
+        <div class="sched-time"><span>09:00</span><span class="t-end">09:30</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-plenary de">Plenarsitzung</span>
+          <span class="sched-tag tag-plenary fr hidden">Plénière</span>
+          <div class="sched-title de">Recap &amp; Ausblick Tag 2</div>
+          <div class="sched-title fr hidden">Récapitulation et perspectives du Jour 2</div>
+        </div>
+      </div>
+
+      <!-- 09:30 Workshops -->
+      <div class="sched-item">
+        <div class="sched-time"><span>09:30</span><span class="t-end">11:00</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-parallel de">Workshops (parallel)</span>
+          <span class="sched-tag tag-parallel fr hidden">Ateliers (en parallèle)</span>
+          <div class="sched-title de">Workshops / Roundtables – Parallelsitzungen</div>
+          <div class="sched-title fr hidden">Ateliers / Tables rondes – Sessions parallèles</div>
+          <div class="parallel-grid" style="margin-top:.75rem">
+
+            <div class="panel-card pc-market">
+              <div class="panel-num de">Workshop A</div>
+              <div class="panel-num fr hidden">Atelier A</div>
+              <div class="panel-title de">Markteintritt Tunesien ↔ Deutschland</div>
+              <div class="panel-title fr hidden">Entrée sur le marché Tunisie ↔ Allemagne</div>
+              <ul class="panel-topics de">
+                <li>Recht, Steuern, Zoll</li>
+                <li>Praktische Erfahrungen</li>
+                <li>Spezialisierte Produkte: Olivenöl, Datteln, Konserven</li>
+              </ul>
+              <ul class="panel-topics fr hidden">
+                <li>Droit, fiscalité, douanes</li>
+                <li>Expériences pratiques</li>
+                <li>Produits spécialisés : huile d'olive, dattes, conserves</li>
+              </ul>
+            </div>
+
+            <div class="panel-card pc-supply">
+              <div class="panel-num de">Workshop B</div>
+              <div class="panel-num fr hidden">Atelier B</div>
+              <div class="panel-title de">Lieferketten &amp; Logistik</div>
+              <div class="panel-title fr hidden">Chaînes d'approvisionnement et logistique</div>
+              <ul class="panel-topics de">
+                <li>Herausforderungen &amp; Lösungen</li>
+                <li>Digitalisierungsprozesse</li>
+                <li>Marktzugang Deutschland / EU</li>
+                <li>Qualität &amp; Zertifizierung</li>
+              </ul>
+              <ul class="panel-topics fr hidden">
+                <li>Défis et solutions</li>
+                <li>Processus de numérisation</li>
+                <li>Accès au marché Allemagne / UE</li>
+                <li>Qualité et certification</li>
+              </ul>
+            </div>
+
+            <div class="panel-card pc-skills">
+              <div class="panel-num de">Workshop C</div>
+              <div class="panel-num fr hidden">Atelier C</div>
+              <div class="panel-title de">Fachkräfte &amp; Ausbildung</div>
+              <div class="panel-title fr hidden">Main-d'œuvre qualifiée et formation</div>
+              <ul class="panel-topics de">
+                <li>Duale Ausbildung</li>
+                <li>Kooperationen mit Hochschulen</li>
+                <li>Kooperationen mit Pflegeschulen / Krankenhäusern</li>
+              </ul>
+              <ul class="panel-topics fr hidden">
+                <li>Formation en alternance (système dual)</li>
+                <li>Coopérations avec les universités</li>
+                <li>Coopérations avec les écoles d'infirmiers / hôpitaux</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 11:00 Coffee -->
+      <div class="sched-item is-break">
+        <div class="sched-time"><span>11:00</span><span class="t-end">11:30</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-break de">Pause</span>
+          <span class="sched-tag tag-break fr hidden">Pause</span>
+          <div class="sched-title de">Kaffeepause</div>
+          <div class="sched-title fr hidden">Pause café</div>
+        </div>
+      </div>
+
+      <!-- 11:30 B2B -->
+      <div class="sched-item">
+        <div class="sched-time"><span>11:30</span><span class="t-end">13:00</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-b2b">B2B Matchmaking</span>
+          <div class="sched-title">B2B Matchmaking</div>
+          <ul class="sched-details de">
+            <li>Fortsetzung der individuellen Gespräche</li>
+            <li>Fokus auf konkrete Projektanbahnung</li>
+          </ul>
+          <ul class="sched-details fr hidden">
+            <li>Poursuite des entretiens individuels</li>
+            <li>Focus sur l'initiation de projets concrets</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 13:00 Lunch -->
+      <div class="sched-item is-break">
+        <div class="sched-time"><span>13:00</span><span class="t-end">14:00</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-lunch de">Mittagessen</span>
+          <span class="sched-tag tag-lunch fr hidden">Déjeuner</span>
+          <div class="sched-title de">Lunch &amp; Networking</div>
+          <div class="sched-title fr hidden">Déjeuner et réseautage</div>
+        </div>
+      </div>
+
+      <!-- 14:00 Closing Panel -->
+      <div class="sched-item">
+        <div class="sched-time"><span>14:00</span><span class="t-end">15:00</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-plenary de">Abschlusspanel</span>
+          <span class="sched-tag tag-plenary fr hidden">Panel de clôture</span>
+          <div class="sched-title de">Abschlusspanel: Zukunft der deutsch-tunesischen Partnerschaft</div>
+          <div class="sched-title fr hidden">Panel de clôture : L'avenir du partenariat germano-tunisien</div>
+          <ul class="sched-details de">
+            <li>Ergebnisse der Panels</li>
+            <li>Identifizierte Projekte</li>
+            <li>Politische &amp; wirtschaftliche Perspektiven</li>
+          </ul>
+          <ul class="sched-details fr hidden">
+            <li>Résultats des panels</li>
+            <li>Projets identifiés</li>
+            <li>Perspectives politiques et économiques</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 15:00 Official Closing -->
+      <div class="sched-item">
+        <div class="sched-time"><span>15:00</span><span class="t-end">15:30</span></div>
+        <div class="sched-body">
+          <span class="sched-tag tag-closing de">Offizieller Abschluss</span>
+          <span class="sched-tag tag-closing fr hidden">Clôture officielle</span>
+          <div class="sched-title de">Offizieller Abschluss</div>
+          <div class="sched-title fr hidden">Clôture officielle</div>
+          <ul class="sched-details de">
+            <li>Zusammenfassung &amp; Dankesworte</li>
+            <li>Einladung zur nächsten Ausgabe</li>
+            <li>Ausblick: Deutsche Wirtschaftsdelegationsreise nach Tunesien (März 2027)</li>
+          </ul>
+          <ul class="sched-details fr hidden">
+            <li>Synthèse &amp; remerciements</li>
+            <li>Invitation à la prochaine édition</li>
+            <li>Perspective : mission de délégation économique allemande en Tunisie (mars 2027)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /day2 -->
+
+</div><!-- /program-content -->
+
+<!-- ═══ DOWNLOADS ═══ -->
+<section id="downloads">
+  <div class="section-inner">
+    <p class="section-label de">Dokumente</p>
+    <p class="section-label fr hidden">Documents</p>
+    <h2 class="section-title de">Programm herunterladen</h2>
+    <h2 class="section-title fr hidden">Télécharger le programme</h2>
+
+    <p class="dl-group-title de">Vorläufiges Programm</p>
+    <p class="dl-group-title fr hidden">Programme provisoire</p>
+    <div class="dl-grid">
+      <a class="dl-card" href="pdfs/Vorl%C3%A4ufiges%20Programm%20Deutsch-Tunesisches%20Business%20Forum%202026%20Rathaus%20Essen.pdf" download>
+        <div class="dl-icon de-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+            <line x1="12" y1="18" x2="12" y2="12"/><polyline points="9,15 12,18 15,15"/>
+          </svg>
+        </div>
+        <div class="dl-info">
+          <div class="dl-lang">Deutsch</div>
+          <div class="dl-name de">Vorläufiges Programm – PDF</div>
+          <div class="dl-name fr hidden">Programme provisoire – PDF (DE)</div>
+        </div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a class="dl-card" href="pdfs/Programme%201.Provisoire%20%20Forum%20%C3%89conomique%20Tuniso-Allemand%20%202026.pdf" download>
+        <div class="dl-icon fr-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+            <line x1="12" y1="18" x2="12" y2="12"/><polyline points="9,15 12,18 15,15"/>
+          </svg>
+        </div>
+        <div class="dl-info">
+          <div class="dl-lang">Français</div>
+          <div class="dl-name fr hidden">Programme provisoire – PDF</div>
+          <div class="dl-name de">Programme Provisoire – PDF (FR)</div>
+        </div>
+        <div class="dl-arrow">↓</div>
+      </a>
+    </div>
+
+    <p class="dl-group-title de">Forum-Dokument</p>
+    <p class="dl-group-title fr hidden">Document du Forum</p>
+    <div class="dl-grid">
+      <a class="dl-card" href="pdfs/1.Deutsch-Tunesisches%20Business%20Forum%202026.pdf" download>
+        <div class="dl-icon de-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+            <line x1="12" y1="18" x2="12" y2="12"/><polyline points="9,15 12,18 15,15"/>
+          </svg>
+        </div>
+        <div class="dl-info">
+          <div class="dl-lang">Deutsch</div>
+          <div class="dl-name de">Deutsch-Tunesisches Business Forum 2026 – PDF</div>
+          <div class="dl-name fr hidden">Forum germano-tunisien 2026 – PDF (DE)</div>
+        </div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a class="dl-card" href="pdfs/1.%20Forum%20%C3%89conomique%20Tuniso-Allemand%202026%20im%20Rathaus%20Essen%22.pdf" download>
+        <div class="dl-icon fr-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+            <line x1="12" y1="18" x2="12" y2="12"/><polyline points="9,15 12,18 15,15"/>
+          </svg>
+        </div>
+        <div class="dl-info">
+          <div class="dl-lang">Français</div>
+          <div class="dl-name fr hidden">Forum Économique Tuniso-Allemand 2026 – PDF</div>
+          <div class="dl-name de">Forum Économique Tuniso-Allemand 2026 – PDF (FR)</div>
+        </div>
+        <div class="dl-arrow">↓</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p class="de">&copy; 2026 Deutsch-Tunesisches Business Forum Essen &middot; <a href="contact.html">Kontakt</a></p>
+  <p class="fr hidden">&copy; 2026 Forum Économique Tuniso-Allemand Essen &middot; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script src="common.js"></script>
+<script>
+  function switchDay(day) {
+    document.querySelectorAll('.day-content').forEach(el => el.classList.remove('active'));
+    document.getElementById('day' + day).classList.add('active');
+    document.querySelectorAll('.day-tab').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('tab' + day).classList.add('active');
+  }
+</script>
+
+</body>
+</html>

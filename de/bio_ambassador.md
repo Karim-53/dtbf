@@ -1,0 +1,5 @@
+Mustapha Ziri ist seit Januar 2024 Generalkonsul der Tunesischen Republik in Düsseldorf und vertritt Tunesien in den Bundesländern Nordrhein-Westfalen, Hessen, Rheinland-Pfalz und Saarland. Er ist damit der ranghöchste diplomatische Vertreter seines Landes in einer der wirtschaftsstärksten Regionen Deutschlands.
+
+Seit seinem Amtsantritt hat Ziri den bilateralen Dialog systematisch ausgebaut. Im Februar 2026 wurde er von Oberbürgermeister Thomas Kufen im Rathaus Essen empfangen; im März 2026 traf er den Präsidenten des Landtags NRW, André Kuper, um Perspektiven der parlamentarischen und wirtschaftlichen Zusammenarbeit zu erörtern.
+
+Das Deutsch-Tunesische Business Forum Essen 2026 geht maßgeblich auf seine Initiative zurück. Anlässlich des 70. Jubiläums der diplomatischen Beziehungen zwischen Deutschland und Tunesien schlug Ziri vor, ein bilaterales Wirtschaftsforum in Essen auszurichten — ein sichtbares Zeichen für das wachsende Interesse beider Seiten an einer vertieften Partnerschaft in Handel, Investition und Fachkräfteaustausch.

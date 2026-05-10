@@ -1,0 +1,5 @@
+Thomas Kufen, geboren am 5. August 1973, ist seit Oktober 2015 Oberbürgermeister der Stadt Essen. Der CDU-Politiker engagierte sich zunächst im Landtag Nordrhein-Westfalen (2000–2005 und 2012–2015) sowie als Fraktionsvorsitzender der CDU im Essener Stadtrat (2010–2015), bevor er das höchste Amt der Ruhrgebietsmetropole übernahm.
+
+Als Oberbürgermeister einer der größten Städte Deutschlands setzt Kufen auf den strukturellen Wandel Essens — von der einstigen Kohle- und Stahlregion hin zu einem modernen Standort für Wirtschaft, Bildung und nachhaltige Stadtentwicklung. Essen war 2017 Kulturhauptstadt Europas und positioniert sich heute als Knotenpunkt für Innovation und internationale Kooperation im Ruhrgebiet.
+
+Thomas Kufen ist Mitglied des CDU-Bundesvorstands und stellvertretender Sprecher des Städteausschusses des Regionalverbands Ruhr (RVR). Seine Teilnahme am Deutsch-Tunesischen Business Forum unterstreicht das Engagement der Stadt Essen für internationale Wirtschaftspartnerschaften und die Stärkung bilateraler Beziehungen.

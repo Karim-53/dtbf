@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Erstes Deutsch-Tunesisches Business Forum Essen 2026 – 17./18. September 2026, Rathaus Essen. Partnerschaften für Innovation, Nachhaltigkeit und Wachstum.">
+  <meta property="og:title" content="Deutsch-Tunesisches Business Forum Essen 2026">
+  <meta property="og:description" content="17.–18. September 2026 · Rathaus Essen · Partnerschaften für Innovation, Nachhaltigkeit und Wachstum">
+  <meta property="og:image" content="icon.png">
+  <title>Deutsch-Tunesisches Business Forum Essen 2026</title>
+  <link rel="icon" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:      #003580;
+      --primary-dark: #002060;
+      --accent:       #e8a020;
+      --text:         #1a1a2e;
+      --text-muted:   #5a6070;
+      --bg:           #ffffff;
+      --bg-alt:       #f4f6f9;
+      --border:       #dde2ed;
+      --max-w:        1100px;
+      --radius:       10px;
+    }
+
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    .hidden { display: none !important; }
+
+    /* ── NAV ── */
+    nav#topnav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: .75rem 1.5rem;
+      display: flex; align-items: center; gap: 1.5rem;
+      position: relative;
+    }
+    .nav-logo img { height: 38px; display: block; }
+    .nav-links {
+      display: flex; gap: 1.25rem; flex: 1; list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none; color: var(--primary);
+      font-weight: 600; font-size: .88rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: .6rem; margin-left: auto; }
+    .lang-btn {
+      background: none; border: 2px solid var(--border);
+      border-radius: 6px; padding: .22rem .55rem;
+      font-family: inherit; font-weight: 700; font-size: .82rem;
+      cursor: pointer; color: var(--primary); transition: all .2s;
+    }
+    .lang-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .share-btn {
+      background: var(--accent); color: #fff; border: none;
+      border-radius: 6px; padding: .32rem .7rem;
+      font-family: inherit; font-weight: 700; font-size: .82rem;
+      cursor: pointer; display: flex; align-items: center; gap: .35rem;
+      transition: opacity .2s;
+    }
+    .share-btn:hover { opacity: .85; }
+    .nav-hamburger {
+      display: none; background: none; border: none;
+      cursor: pointer; color: var(--primary); font-size: 1.4rem; padding: .2rem;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(140deg, var(--primary-dark) 0%, var(--primary) 55%, #005aad 100%);
+      color: #fff; padding: 5rem 1.5rem 4.5rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('icon.png') center/contain no-repeat;
+      opacity: .05;
+    }
+    .hero-inner { max-width: 820px; margin: 0 auto; position: relative; }
+    .hero-logo {
+      width: 100px; height: 100px; object-fit: contain;
+      border-radius: 50%; box-shadow: 0 4px 28px rgba(0,0,0,.35);
+      margin-bottom: 1.5rem;
+    }
+    .hero-subtitle {
+      font-size: .82rem; text-transform: uppercase; letter-spacing: 2.5px;
+      color: var(--accent); font-weight: 700; margin-bottom: .5rem;
+    }
+    .hero-title {
+      font-size: clamp(1.7rem, 4.5vw, 3rem);
+      font-weight: 800; line-height: 1.12; margin-bottom: .75rem;
+    }
+    .hero-tagline { font-size: 1.05rem; opacity: .82; margin-bottom: 2.25rem; }
+    .hero-meta {
+      display: flex; justify-content: center; gap: 1rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .hero-meta-item {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-weight: 600; font-size: .95rem;
+      text-decoration: none; color: #fff;
+      background: rgba(255,255,255,.13); border-radius: 30px;
+      padding: .55rem 1.25rem; transition: background .2s;
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    .hero-meta-item:hover { background: rgba(255,255,255,.23); }
+    .hero-meta-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .hero-cta {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-weight: 800; font-size: 1.05rem;
+      padding: .9rem 2.5rem; border-radius: 50px;
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 22px rgba(232,160,32,.45);
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 7px 30px rgba(232,160,32,.55); }
+
+    /* ── QUICK NAV ── */
+    #quicknav {
+      background: var(--bg-alt); border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .quicknav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; gap: .5rem; padding: .8rem 0; white-space: nowrap;
+    }
+    .quicknav-inner a {
+      text-decoration: none; color: var(--primary);
+      font-weight: 600; font-size: .83rem;
+      padding: .32rem .9rem; border-radius: 20px;
+      border: 1.5px solid var(--border); background: #fff;
+      transition: all .2s; flex-shrink: 0;
+    }
+    .quicknav-inner a:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    /* ── SHARED SECTION STYLES ── */
+    section { padding: 4rem 1.5rem; }
+    #hosts   { background: var(--bg-alt); }
+    .section-inner { max-width: var(--max-w); margin: 0 auto; }
+    .section-label {
+      font-size: .75rem; text-transform: uppercase; letter-spacing: 2.5px;
+      color: var(--accent); font-weight: 700; margin-bottom: .4rem;
+    }
+    .section-title {
+      font-size: clamp(1.35rem, 3vw, 2rem); font-weight: 800;
+      color: var(--primary); margin-bottom: 1.75rem; line-height: 1.2;
+    }
+
+    /* ── ABSTRACT ── */
+    .abstract-body p { margin-bottom: 1rem; line-height: 1.8; color: var(--text); }
+    .abstract-body ul {
+      list-style: none;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: .75rem; margin: .5rem 0 1rem;
+    }
+    .abstract-body ul li {
+      background: #fff; border: 1.5px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius); padding: 1rem 1.1rem;
+    }
+    .abstract-body ul li strong {
+      display: block; color: var(--primary);
+      font-weight: 700; margin-bottom: .3rem; font-size: .95rem;
+    }
+    .abstract-body ul li { font-size: .92rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── BIOS ── */
+    .bios-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem;
+    }
+    .bio-card {
+      background: #fff; border-radius: var(--radius);
+      border: 1.5px solid var(--border); padding: 2rem;
+      box-shadow: 0 2px 14px rgba(0,0,0,.05);
+    }
+    .bio-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+    .bio-avatar {
+      width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
+      background: var(--primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.3rem;
+    }
+    .bio-name { font-weight: 800; font-size: 1.05rem; color: var(--primary); }
+    .bio-role { font-size: .82rem; color: var(--text-muted); font-weight: 600; margin-top: .2rem; line-height: 1.4; }
+    .bio-text p { font-size: .93rem; line-height: 1.75; color: var(--text); margin-bottom: .8rem; }
+    .bio-text p:last-child { margin-bottom: 0; }
+
+    /* ── PROGRAM CTA ── */
+    #program-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, #005aad 100%);
+      color: #fff; text-align: center;
+    }
+    #program-cta .section-label { color: rgba(255,255,255,.55); }
+    #program-cta .section-title { color: #fff; }
+    .program-cta-text { opacity: .85; margin-bottom: 2rem; font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .btn-outline-white {
+      display: inline-block; border: 2.5px solid #fff; color: #fff;
+      padding: .75rem 2rem; border-radius: 50px; font-weight: 700;
+      text-decoration: none; font-size: .98rem; transition: all .2s;
+    }
+    .btn-outline-white:hover { background: #fff; color: var(--primary); }
+
+    /* ── LOCATION ── */
+    .location-block { display: flex; flex-direction: column; gap: 1.25rem; }
+    .location-address {
+      display: inline-flex; align-items: flex-start; gap: 1rem;
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem 1.75rem;
+      max-width: 420px;
+    }
+    .location-address svg { color: var(--accent); flex-shrink: 0; margin-top: .25rem; }
+    .location-address address { font-style: normal; line-height: 1.85; }
+    .location-address address strong { font-weight: 800; color: var(--primary); display: block; }
+    .map-link {
+      display: inline-flex; align-items: center; gap: .4rem;
+      color: var(--primary); font-weight: 700; text-decoration: none;
+      border-bottom: 2px solid var(--accent); padding-bottom: 2px;
+      font-size: .95rem; transition: color .2s;
+    }
+    .map-link:hover { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary-dark); color: rgba(255,255,255,.6);
+      padding: 2rem 1.5rem; text-align: center; font-size: .88rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: #fff; border-top: 1px solid var(--border);
+        padding: 1rem 1.5rem; gap: .6rem;
+        box-shadow: 0 6px 16px rgba(0,0,0,.1); z-index: 200;
+      }
+      .hero-meta { gap: .75rem; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 2.75rem 1rem; }
+      .hero-cta { font-size: .95rem; padding: .8rem 1.75rem; }
+      .bio-card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="topnav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="icon.png" alt="DTBF 2026">
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li>
+        <a href="index.html" class="de">Startseite</a>
+        <a href="index.html" class="fr hidden">Accueil</a>
+      </li>
+      <li>
+        <a href="program.html" class="de">Programm</a>
+        <a href="program.html" class="fr hidden">Programme</a>
+      </li>
+      <li>
+        <a href="team.html" class="de">Team</a>
+        <a href="team.html" class="fr hidden">Équipe</a>
+      </li>
+      <li>
+        <a href="inscription.html" class="de">Anmeldung</a>
+        <a href="inscription.html" class="fr hidden">Inscription</a>
+      </li>
+      <li>
+        <a href="contact.html" class="de">Kontakt</a>
+        <a href="contact.html" class="fr hidden">Contact</a>
+      </li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="lang-btn active" id="btnDe" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" id="btnFr" onclick="setLang('fr')">FR</button>
+      <button class="share-btn" onclick="shareEvent()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        <span class="de">Teilen</span>
+        <span class="fr hidden">Partager</span>
+      </button>
+      <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menü">&#9776;</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-inner">
+    <img src="icon.png" alt="DTBF 2026 Logo" class="hero-logo">
+
+    <p class="hero-subtitle de">Erstes Deutsch-Tunesisches Business Forum</p>
+    <p class="hero-subtitle fr hidden">Premier Forum Économique Tuniso-Allemand</p>
+
+    <h1 class="hero-title de">Business Forum Essen 2026</h1>
+    <h1 class="hero-title fr hidden">Forum Économique Essen 2026</h1>
+
+    <p class="hero-tagline de">Partnerschaften für Innovation, Nachhaltigkeit und Wachstum</p>
+    <p class="hero-tagline fr hidden">Partenariats pour l'innovation, la durabilité et la croissance</p>
+
+    <div class="hero-meta">
+      <a href="program.html" class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <span>17.–18. September 2026</span>
+      </a>
+      <a href="#location" class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span class="de">Rathaus Essen</span>
+        <span class="fr hidden">Hôtel de Ville d'Essen</span>
+      </a>
+    </div>
+
+    <a href="inscription.html" class="hero-cta de">Jetzt anmelden &rarr;</a>
+    <a href="inscription.html" class="hero-cta fr hidden">S'inscrire maintenant &rarr;</a>
+  </div>
+</section>
+
+<!-- ═══ QUICK NAV ═══ -->
+<nav id="quicknav" aria-label="Seitennavigation">
+  <div class="quicknav-inner">
+    <a href="#about" class="de">Über das Forum</a>
+    <a href="#about" class="fr hidden">À propos</a>
+    <a href="#hosts" class="de">Gastgeber</a>
+    <a href="#hosts" class="fr hidden">Intervenants</a>
+    <a href="program.html" class="de">Programm</a>
+    <a href="program.html" class="fr hidden">Programme</a>
+    <a href="team.html" class="de">Team</a>
+    <a href="team.html" class="fr hidden">Équipe</a>
+    <a href="inscription.html" class="de">Anmeldung</a>
+    <a href="inscription.html" class="fr hidden">Inscription</a>
+    <a href="contact.html" class="de">Kontakt</a>
+    <a href="contact.html" class="fr hidden">Contact</a>
+    <a href="#location" class="de">Anfahrt</a>
+    <a href="#location" class="fr hidden">Lieu</a>
+  </div>
+</nav>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label de">Das Forum</p>
+    <p class="section-label fr hidden">Le Forum</p>
+    <h2 class="section-title de">Über das Business Forum</h2>
+    <h2 class="section-title fr hidden">À propos du Forum Économique</h2>
+
+    <div class="abstract-body de">
+      <p>Das Erste Deutsch-Tunesische Business Forum Essen 2026 bringt am 17. und 18. September 2026 im Rathaus Essen Unternehmerinnen und Unternehmer, Institutionen und politische Vertreter beider Länder zusammen, um konkrete Partnerschaften für Innovation, Nachhaltigkeit und gemeinsames Wachstum zu entwickeln.</p>
+      <p>Tunesien ist ein strategischer Partner Deutschlands am Mittelmeer — mit einer jungen Bevölkerung, wachsender Wirtschaft und einem klaren Bekenntnis zur europäischen Integration. Dieses Forum schafft den Rahmen, um die bilateralen Wirtschaftsbeziehungen auf eine neue Stufe zu heben: durch Wissenstransfer, Investitionspartnerschaften und den direkten Dialog zwischen Entscheidungsträgern.</p>
+      <p>Im Mittelpunkt stehen vier Schlüsselbranchen mit besonderem Kooperationspotenzial:</p>
+      <ul>
+        <li><strong>Gesundheitswirtschaft</strong>Medizintechnik, Digitalisierung, Klinikpartnerschaften und Fachkräfteaustausch</li>
+        <li><strong>Kreislaufwirtschaft</strong>Nachhaltige Abfallwirtschaft, Recyclinglösungen und Public-Private Partnerships nach EU-Standard</li>
+        <li><strong>Agrar- &amp; Lebensmittelwirtschaft</strong>Marktzugang für tunesische Premiumprodukte wie Olivenöl, Datteln und Konserven sowie Lieferketten- und Logistiklösungen</li>
+        <li><strong>Energie &amp; Energiewende</strong>Solar- und Windenergie, Wasserstoffperspektiven und Netzinfrastruktur</li>
+      </ul>
+      <p>Das Programm umfasst Keynotes und strategische Panels am ersten Tag sowie praxisorientierte Workshops, B2B-Matchmaking und ein Abschlusspanel zur Zukunft der deutsch-tunesischen Partnerschaft am zweiten Tag. Als Ausblick ist eine deutsche Wirtschaftsdelegationsreise nach Tunesien im März 2027 geplant.</p>
+    </div>
+
+    <div class="abstract-body fr hidden">
+      <p>Le Premier Forum Économique Tuniso-Allemand Essen 2026 réunit les 17 et 18 septembre 2026 à l'Hôtel de Ville d'Essen des chefs d'entreprise, des institutions et des représentants politiques des deux pays, avec pour objectif de nouer des partenariats concrets autour de l'innovation, du développement durable et de la croissance partagée.</p>
+      <p>La Tunisie est un partenaire stratégique de l'Allemagne en Méditerranée — dotée d'une population jeune, d'une économie en expansion et d'un engagement affirmé en faveur de l'intégration européenne. Ce forum offre le cadre idéal pour porter les relations économiques bilatérales à un niveau supérieur : par le transfert de savoir-faire, les partenariats d'investissement et le dialogue direct entre décideurs.</p>
+      <p>Quatre secteurs clés à fort potentiel de coopération sont au cœur des travaux :</p>
+      <ul>
+        <li><strong>Économie de la santé</strong>Technologie médicale, numérisation, partenariats hospitaliers et échange de professionnels qualifiés</li>
+        <li><strong>Économie circulaire</strong>Gestion durable des déchets, solutions de recyclage et partenariats public-privé aux normes européennes</li>
+        <li><strong>Agriculture &amp; agroalimentaire</strong>Accès au marché pour les produits tunisiens premium (huile d'olive, dattes, conserves), logistique et chaînes d'approvisionnement</li>
+        <li><strong>Énergie &amp; transition énergétique</strong>Énergies solaire et éolienne, perspectives hydrogène et infrastructures de réseau</li>
+      </ul>
+      <p>Le programme comprend des keynotes et des panels stratégiques lors de la première journée, suivis d'ateliers pratiques, d'un matchmaking B2B et d'un panel de clôture sur l'avenir du partenariat germano-tunisien. En perspective, une mission de délégation économique allemande en Tunisie est prévue en mars 2027.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOSTS / BIOS ═══ -->
+<section id="hosts">
+  <div class="section-inner">
+    <p class="section-label de">Gastgeber &amp; Initiator</p>
+    <p class="section-label fr hidden">Hôtes &amp; Initiateur</p>
+    <h2 class="section-title de">Persönlichkeiten des Forums</h2>
+    <h2 class="section-title fr hidden">Personnalités du Forum</h2>
+
+    <div class="bios-grid">
+
+      <!-- Thomas Kufen -->
+      <div class="bio-card">
+        <div class="bio-card-header">
+          <div class="bio-avatar">TK</div>
+          <div>
+            <div class="bio-name">Thomas Kufen</div>
+            <div class="bio-role de">Oberbürgermeister der Stadt Essen</div>
+            <div class="bio-role fr hidden">Maire de la ville d'Essen</div>
+          </div>
+        </div>
+        <div class="bio-text de">
+          <p>Thomas Kufen, geboren am 5. August 1973, ist seit Oktober 2015 Oberbürgermeister der Stadt Essen. Der CDU-Politiker engagierte sich zunächst im Landtag Nordrhein-Westfalen (2000–2005 und 2012–2015) sowie als Fraktionsvorsitzender der CDU im Essener Stadtrat (2010–2015), bevor er das höchste Amt der Ruhrgebietsmetropole übernahm.</p>
+          <p>Als Oberbürgermeister setzt Kufen auf den strukturellen Wandel Essens — von der einstigen Kohle- und Stahlregion hin zu einem modernen Standort für Wirtschaft, Bildung und nachhaltige Stadtentwicklung. Essen war 2017 Kulturhauptstadt Europas und positioniert sich heute als Knotenpunkt für Innovation und internationale Kooperation im Ruhrgebiet.</p>
+          <p>Seine Teilnahme am Deutsch-Tunesischen Business Forum unterstreicht das Engagement der Stadt Essen für internationale Wirtschaftspartnerschaften und die Stärkung bilateraler Beziehungen.</p>
+        </div>
+        <div class="bio-text fr hidden">
+          <p>Thomas Kufen, né le 5 août 1973, est maire (Oberbürgermeister) de la ville d'Essen depuis octobre 2015. Ce membre de l'Union chrétienne-démocrate (CDU) a d'abord siégé au Parlement du Land de Rhénanie-du-Nord-Westphalie, puis présidé le groupe CDU au conseil municipal d'Essen.</p>
+          <p>À la tête d'une des plus grandes villes d'Allemagne, Thomas Kufen œuvre pour la transformation structurelle d'Essen. La ville a été Capitale européenne de la culture en 2017 et se positionne aujourd'hui comme un carrefour d'innovation au cœur de la région Ruhr.</p>
+          <p>Sa participation au Forum Économique Tuniso-Allemand témoigne de l'engagement d'Essen en faveur des partenariats économiques internationaux et du renforcement des relations bilatérales.</p>
+        </div>
+      </div>
+
+      <!-- Mustapha Ziri -->
+      <div class="bio-card">
+        <div class="bio-card-header">
+          <div class="bio-avatar">MZ</div>
+          <div>
+            <div class="bio-name">Mustapha Ziri</div>
+            <div class="bio-role de">Generalkonsul der Tunesischen Republik, Düsseldorf</div>
+            <div class="bio-role fr hidden">Consul général de la République tunisienne, Düsseldorf</div>
+          </div>
+        </div>
+        <div class="bio-text de">
+          <p>Mustapha Ziri ist seit Januar 2024 Generalkonsul der Tunesischen Republik in Düsseldorf und vertritt Tunesien in den Bundesländern Nordrhein-Westfalen, Hessen, Rheinland-Pfalz und Saarland — einer der wirtschaftsstärksten Regionen Deutschlands.</p>
+          <p>Seit seinem Amtsantritt hat Ziri den bilateralen Dialog systematisch ausgebaut. Im Februar 2026 wurde er von Oberbürgermeister Thomas Kufen im Rathaus Essen empfangen; im März 2026 traf er den Präsidenten des Landtags NRW, André Kuper, um Perspektiven der parlamentarischen und wirtschaftlichen Zusammenarbeit zu erörtern.</p>
+          <p>Das Deutsch-Tunesische Business Forum Essen 2026 geht maßgeblich auf seine Initiative zurück — anlässlich des 70. Jubiläums der diplomatischen Beziehungen zwischen Deutschland und Tunesien.</p>
+        </div>
+        <div class="bio-text fr hidden">
+          <p>Mustapha Ziri est Consul général de la République tunisienne à Düsseldorf depuis janvier 2024. Il représente la Tunisie en Rhénanie-du-Nord-Westphalie, Hesse, Rhénanie-Palatinat et Sarre — soit l'une des régions économiques les plus dynamiques d'Allemagne.</p>
+          <p>Depuis sa prise de fonctions, il a activement développé le dialogue bilatéral : reçu par le maire Thomas Kufen en février 2026, il a également rencontré le président du Parlement de NRW André Kuper en mars 2026 pour examiner les perspectives de coopération.</p>
+          <p>Le Forum Économique Tuniso-Allemand Essen 2026 est en grande partie le fruit de son initiative, à l'occasion du 70e anniversaire des relations diplomatiques germano-tunisiennes.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROGRAM CTA ═══ -->
+<section id="program-cta">
+  <div class="section-inner">
+    <p class="section-label de">17.–18. September 2026</p>
+    <p class="section-label fr hidden">17–18 septembre 2026</p>
+    <h2 class="section-title de">Das vollständige Programm</h2>
+    <h2 class="section-title fr hidden">Le programme complet</h2>
+    <p class="program-cta-text de">Fachpanels, Keynotes, B2B-Matchmaking und Workshops über zwei Tage — entdecken Sie alle Themen und Zeitangaben im Detailprogramm.</p>
+    <p class="program-cta-text fr hidden">Panels thématiques, keynotes, matchmaking B2B et ateliers sur deux journées — découvrez tous les thèmes et horaires dans le programme détaillé.</p>
+    <a href="program.html" class="btn-outline-white de">Zum Programm &rarr;</a>
+    <a href="program.html" class="btn-outline-white fr hidden">Voir le programme &rarr;</a>
+  </div>
+</section>
+
+<!-- ═══ LOCATION ═══ -->
+<section id="location">
+  <div class="section-inner">
+    <p class="section-label de">Veranstaltungsort</p>
+    <p class="section-label fr hidden">Lieu de l'événement</p>
+    <h2 class="section-title de">Anreise &amp; Adresse</h2>
+    <h2 class="section-title fr hidden">Adresse &amp; Accès</h2>
+
+    <div class="location-block">
+      <div class="location-address">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        <address>
+          <strong>Rathaus Essen</strong>
+          Porscheplatz 1<br>
+          45121 Essen<br>
+          Deutschland
+        </address>
+      </div>
+
+      <a href="https://maps.google.com/?q=Rathaus+Essen,+Porscheplatz+1,+45121+Essen"
+         target="_blank" rel="noopener noreferrer" class="map-link de">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        In Google Maps öffnen
+      </a>
+      <a href="https://maps.google.com/?q=Rathaus+Essen,+Porscheplatz+1,+45121+Essen"
+         target="_blank" rel="noopener noreferrer" class="map-link fr hidden">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        Ouvrir dans Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p class="de">&copy; 2026 Deutsch-Tunesisches Business Forum Essen &middot; <a href="contact.html">Kontakt</a></p>
+  <p class="fr hidden">&copy; 2026 Forum Économique Tuniso-Allemand Essen &middot; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  let currentLang = 'de';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.de').forEach(el => el.classList.toggle('hidden', lang !== 'de'));
+    document.querySelectorAll('.fr').forEach(el => el.classList.toggle('hidden', lang !== 'fr'));
+    document.getElementById('btnDe').classList.toggle('active', lang === 'de');
+    document.getElementById('btnFr').classList.toggle('active', lang === 'fr');
+    localStorage.setItem('dtbf-lang', lang);
+  }
+
+  function detectLanguage() {
+    const saved = localStorage.getItem('dtbf-lang');
+    if (saved === 'de' || saved === 'fr') return saved;
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const frZones = [
+        'Africa/Tunis', 'Europe/Paris', 'Europe/Brussels', 'Europe/Luxembourg',
+        'Africa/Algiers', 'Africa/Casablanca', 'Africa/Abidjan', 'Africa/Dakar',
+        'Africa/Douala', 'Africa/Kinshasa', 'Indian/Reunion', 'Indian/Mauritius',
+        'America/Montreal'
+      ];
+      if (frZones.includes(tz)) return 'fr';
+    } catch (e) {}
+    if ((navigator.language || '').toLowerCase().startsWith('fr')) return 'fr';
+    return 'de';
+  }
+
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    links.classList.toggle('open');
+  }
+
+  async function shareEvent() {
+    const titles = {
+      de: 'Deutsch-Tunesisches Business Forum Essen 2026',
+      fr: 'Forum Économique Tuniso-Allemand Essen 2026'
+    };
+    const texts = {
+      de: '17.–18. September 2026 · Rathaus Essen',
+      fr: '17–18 septembre 2026 · Hôtel de Ville d\'Essen'
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: titles[currentLang], text: texts[currentLang], url: window.location.href });
+      } catch (e) {}
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert(currentLang === 'fr' ? 'Lien copié !' : 'Link kopiert!');
+      } catch (e) {}
+    }
+  }
+
+  // Close mobile menu when a nav link is clicked
+  document.getElementById('navLinks').addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') this.classList.remove('open');
+  });
+
+  // Init
+  setLang(detectLanguage());
+</script>
+
+</body>
+</html>

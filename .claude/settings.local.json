@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "WebSearch",
-      "WebFetch(domain:www.essen.de)",
-      "WebFetch(domain:en.wikipedia.org)"
-    ]
-  }
-}
